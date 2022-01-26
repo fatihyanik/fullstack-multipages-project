@@ -1,13 +1,17 @@
 const express = require("express");
-const app = express();
+require("dotenv").config()
 const path = require("path");
-//set the port
+
+const app = express();
+// set the port
 const port = process.env.PORT || 3000;
-//set the view engine
+// set public folder
+app.use(express.static(path.join(__dirname, "public")));
+// set ejs as view engine
 app.set("view engine", "ejs");
+// set view folder path
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(__dirname + "/public"));
-//index
+// index
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -31,6 +35,8 @@ app.get("/video-detail", (req, res) => {
 app.get("/videos", (req, res) => {
   res.render("videos");
 });
+
+// listener
 app.listen(port, () => {
   console.log(`node application is listening to port : ${port}`);
 });
