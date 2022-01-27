@@ -16,3 +16,14 @@
         - footer.ejs which contains footer element
   
     - include those partials in other views (index, about, contact, videos)
+
+##### Task3:
+    - create a new route called /register
+    - create a new view called register.ejs
+        - the view is a copy of contact.ejs but you need only to show the following inputs
+            - name
+            - email
+            - password
+            - re-password
+    - after click register button, the user should get welcome Email
+    - don't forget to add the register link to the navigation bar
